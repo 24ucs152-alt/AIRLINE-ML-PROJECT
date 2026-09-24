@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suganya S | 3D Personal Portfolio | Machine Learning & Web Developer</title>
+  <meta name="description" content="Official 3D personal portfolio of Suganya S - B.Sc. Computer Science 3rd Year Student. Machine Learning & Web Developer with hands-on experience in Scikit-Learn, Random Forest, Streamlit, Python, Java, HTML, CSS, and SQL.">
+  <meta name="keywords" content="Suganya S, Portfolio, Machine Learning, Airline ML Project, Scikit-Learn, Random Forest, Streamlit, Web Developer, B.Sc Computer Science, Muthayammal College, Java, Python, HTML, CSS, SQL, Rasipuram, Tamil Nadu">
+  <meta name="author" content="Suganya S">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Core & Component Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Ambient Light Orbs & Noise Texture -->
+  <div class="bg-ambient-orb orb-1"></div>
+  <div class="bg-ambient-orb orb-2"></div>
+  <div class="bg-ambient-orb orb-3"></div>
+  <div class="noise-overlay"></div>
+
+  <!-- 3D Three.js WebGL Canvas Layer -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Custom Magnetic Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-glow"></div>
+
+  <!-- ========================================================================
+       Floating Header / Navigation
+       ======================================================================== -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" id="navbar">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-badge">S</span>
+        <span>SUGANYA<span class="text-gradient">.S</span></span>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Internship</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Interactive Sound Effect Toggle -->
+        <button class="sound-toggle-btn" id="sound-toggle" title="Toggle Sound FX" aria-label="Toggle Sound Effects">
+          <i class="fas fa-volume-mute"></i>
+        </button>
+
+        <!-- View Resume CTA -->
+        <button class="btn btn-primary nav-hire-btn open-resume-btn">
+          <span>Resume</span>
+          <i class="fas fa-arrow-up-right-from-square btn-icon"></i>
+        </button>
+
+        <!-- Mobile Drawer Toggle -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========================================================================
+       Hero Section
+       ======================================================================== -->
+  <section class="section hero-section" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Hero Information Column -->
+        <div class="hero-content">
+          <div class="hero-badge-wrapper">
+            <span class="status-dot"></span>
+            <span class="hero-badge-text">B.Sc. Computer Science • 3rd Year Student</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hello, I'm <br>
+            <span class="text-gradient">SUGANYA S</span>
+          </h1>
+
+          <div class="hero-typed-wrapper">
+            <span>Specializing in</span>
+            <span class="typed-text" id="typed-text"></span>
+            <span class="typed-cursor"></span>
+          </div>
+
+          <p class="hero-description">
+            A motivated and detail-oriented Computer Science undergraduate with hands-on web development internship experience and academic project work. Seeking an entry-level internship or placement opportunity to build modern digital products.
+          </p>
+
+          <!-- Quick Contact Chips (Direct from Resume) -->
+          <div class="contact-chips">
+            <div class="contact-chip" id="copy-email-chip" title="Click to copy Email">
+              <i class="fas fa-envelope text-gradient"></i>
+              <span>suganyatrip1@gmail.com</span>
+              <i class="far fa-copy" style="font-size: 0.75rem; opacity: 0.7;"></i>
+            </div>
+            <div class="contact-chip" id="copy-phone-chip" title="Click to copy Phone">
+              <i class="fas fa-phone-alt text-gradient"></i>
+              <span>8072653361</span>
+            </div>
+            <div class="contact-chip">
+              <i class="fas fa-location-dot text-gradient"></i>
+              <span>Rasipuram, Tamil Nadu</span>
+            </div>
+          </div>
+
+          <!-- Hero Action CTAs -->
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <span>Explore Projects</span>
+              <i class="fas fa-arrow-right btn-icon"></i>
+            </a>
+            <a href="#contact" class="btn btn-glass">
+              <i class="fas fa-paper-plane"></i>
+              <span>Get in Touch</span>
+            </a>
+            <button class="btn btn-glass open-resume-btn">
+              <i class="fas fa-file-pdf"></i>
+              <span>View Resume</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3D Interactive Profile Showcase Column -->
+        <div class="hero-visual">
+          <div class="profile-card-3d glass-card" data-tilt>
+            <div class="glare-effect"></div>
+            
+            <div class="profile-image-container">
+              <img src="assets/images/avatar.jpg" alt="Suganya S - Web Developer & Computer Science Student">
+              <div class="profile-overlay-info">
+                <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-cyan);">B.Sc. CS Expected 2027</span>
+                <div class="profile-name">Suganya S</div>
+              </div>
+            </div>
+
+            <div class="profile-meta">
+              <div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">INSTITUTION</div>
+                <div style="font-size: 0.95rem; font-weight: 600; color: #ffffff;">Muthayammal College</div>
+              </div>
+              <div class="profile-status">
+                <i class="fas fa-code-branch"></i> Open to Work
+              </div>
+            </div>
+
+            <!-- Floating Orbital Badges -->
+            <div class="floating-badge badge-1">
+              <i class="fab fa-java"></i>
+              <span>Java & Python</span>
+            </div>
+            <div class="floating-badge badge-2">
+              <i class="fab fa-html5"></i>
+              <span>HTML5 & CSS3</span>
+            </div>
+            <div class="floating-badge badge-3">
+              <i class="fas fa-database"></i>
+              <span>SQL & Git</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       About & Career Objective Section
+       ======================================================================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-user-astronaut"></i>
+          <span>Profile Overview</span>
+        </div>
+        <h2 class="section-title">Career Objective & Background</h2>
+        <p class="section-subtitle">
+          Driven by curiosity, analytical thinking, and a dedication to writing clean, user-friendly code.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <!-- Objective Card -->
+        <div class="glass-card career-objective-card" data-tilt>
+          <div class="glare-effect"></div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;">
+              <i class="fas fa-quote-left text-gradient" style="font-size: 1.8rem;"></i>
+              <h3 style="font-size: 1.4rem; color: #ffffff;">Professional Summary</h3>
+            </div>
+            <p class="objective-quote">
+              "A motivated and detail-oriented B.Sc. Computer Science student with hands-on internship experience and academic project work in web development. Seeking an entry-level internship/placement opportunity to apply technical skills, contribute effectively to a team, and grow as a software professional."
+            </p>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem;">
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary);">
+              <i class="fas fa-language text-gradient" style="margin-right: 0.4rem;"></i>
+              Languages: <strong style="color: #ffffff;">Tamil, English</strong>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); margin-left: auto;">
+              <i class="fas fa-map-pin text-gradient" style="margin-right: 0.4rem;"></i>
+              <strong style="color: #ffffff;">Rasipuram, Tamil Nadu</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic & Growth Metrics Grid -->
+        <div class="stats-grid">
+          <div class="glass-card stat-card" data-tilt>
+            <div class="glare-effect"></div>
+            <div class="stat-value">2027</div>
+            <div class="stat-label">Expected Graduation Year</div>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #94a3b8;">B.Sc. Computer Science at Muthayammal College</p>
+          </div>
+
+          <div class="glass-card stat-card" data-tilt>
+            <div class="glare-effect"></div>
+            <div class="stat-value text-gradient">71%</div>
+            <div class="stat-label">Higher Secondary Education</div>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #94a3b8;">Government Higher Secondary School, Keeripatty</p>
+          </div>
+
+          <div class="glass-card stat-card" data-tilt>
+            <div class="glare-effect"></div>
+            <div class="stat-value text-gradient-purple">3rd</div>
+            <div class="stat-label">Current Academic Year</div>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #94a3b8;">Advanced computer science coursework & projects</p>
+          </div>
+
+          <div class="glass-card stat-card" data-tilt>
+            <div class="glare-effect"></div>
+            <div class="stat-value" style="color: var(--accent-magenta);">100%</div>
+            <div class="stat-label">Dedication & Adaptability</div>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #94a3b8;">Quick learner eager to embrace modern technologies</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Internship / Experience Section
+       ======================================================================== -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-briefcase"></i>
+          <span>Work Experience</span>
+        </div>
+        <h2 class="section-title">Internship Experience</h2>
+        <p class="section-subtitle">
+          Real-world industry exposure in front-end development, responsive web architecture, and engineering teamwork.
+        </p>
+      </div>
+
+      <div style="max-width: 950px; margin: 0 auto;">
+        <div class="timeline-card glass-card" data-tilt>
+          <div class="glare-effect"></div>
+
+          <div class="timeline-header">
+            <div>
+              <h3 class="company-title">Infospark Innovation Pvt Ltd</h3>
+              <div class="role-tag">
+                <i class="fas fa-laptop-code"></i>
+                <span>Web Development Intern</span>
+              </div>
+            </div>
+            <div class="timeline-badge">
+              <i class="fas fa-certificate" style="margin-right: 0.35rem;"></i>
+              <span>Hands-on Industry Internship</span>
+            </div>
+          </div>
+
+          <ul class="experience-points">
+            <li class="experience-point">
+              <i class="fas fa-check-circle point-icon"></i>
+              <span>
+                <strong>Hands-on Web Engineering:</strong> Gained real-world practical experience in front-end web development, building clean, structured code and semantic web layouts.
+              </span>
+            </li>
+            <li class="experience-point">
+              <i class="fas fa-check-circle point-icon"></i>
+              <span>
+                <strong>Responsive & Cross-Device Interfaces:</strong> Designed and implemented fluid layouts ensuring seamless user experience across mobile phones, tablets, and desktop devices.
+              </span>
+            </li>
+            <li class="experience-point">
+              <i class="fas fa-check-circle point-icon"></i>
+              <span>
+                <strong>Technical Collaboration:</strong> Collaborated with senior engineers and mentors, adhering to modern development workflows, code organization, and web standards.
+              </span>
+            </li>
+          </ul>
+
+          <div class="tech-pill-list">
+            <span class="tech-pill">HTML5</span>
+            <span class="tech-pill">CSS3</span>
+            <span class="tech-pill">JavaScript</span>
+            <span class="tech-pill">Responsive Design</span>
+            <span class="tech-pill">UI/UX Implementation</span>
+            <span class="tech-pill">Web Optimization</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Academic Projects Section
+       ======================================================================== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-cubes"></i>
+          <span>Academic & Applied Projects</span>
+        </div>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">
+          End-to-end Machine Learning web applications, e-commerce platforms, and interactive user interfaces built with precision.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Project 1: Airline Customer Satisfaction ML Platform (Featured) -->
+        <div class="project-card glass-card project-featured" data-tilt>
+          <div class="glare-effect"></div>
+          
+          <div class="project-thumbnail">
+            <img src="assets/images/airline_ml_project.jpg" alt="Airline Customer Satisfaction ML Platform - Random Forest & Streamlit">
+            <div class="project-thumbnail-overlay">
+              <span class="project-category-badge"><i class="fas fa-plane-departure" style="margin-right: 0.35rem;"></i>Machine Learning • Streamlit</span>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
+              <span class="featured-badge"><i class="fas fa-star text-gradient"></i> Featured ML Project</span>
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-emerald); font-weight: 600;"><i class="fas fa-circle-check"></i> 95.4% Accuracy</span>
+            </div>
+            
+            <h3 class="project-title">Airline Customer Satisfaction ML Platform</h3>
+            <p class="project-desc">
+              End-to-end Machine Learning web application built using Scikit-Learn, Random Forest (100 trees), and Streamlit. Predicts customer satisfaction levels with 95.4% accuracy based on passenger travel profiles and service touchpoints.
+            </p>
+
+            <ul class="project-features">
+              <li class="project-feature-item">
+                <i class="fas fa-check"></i>
+                <span>Automated preprocessing: missing value imputation & one-hot encoding</span>
+              </li>
+              <li class="project-feature-item">
+                <i class="fas fa-check"></i>
+                <span>Random Forest model: 95.4% Accuracy, 96.2% Precision & 95.5% F1-Score</span>
+              </li>
+              <li class="project-feature-item">
+                <i class="fas fa-check"></i>
+                <span>Streamlit dashboard with live predictions, KPI metrics & confusion matrix</span>
+              </li>
+            </ul>
+
+            <div class="tech-pill-list" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+              <span class="tech-pill">Python 3.10+</span>
+              <span class="tech-pill">Scikit-Learn</span>
+              <span class="tech-pill">Random Forest</span>
+              <span class="tech-pill">Streamlit</span>
+              <span class="tech-pill">Pandas & NumPy</span>
+              <span class="tech-pill">ML Pipeline</span>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn btn-primary btn-demo-trigger" id="open-ml-demo">
+                <i class="fas fa-play"></i>
+                <span>Interactive ML Demo</span>
+              </button>
+              <a href="https://github.com/24ucs152-alt/AIRLINE-ML-PROJECT.git" target="_blank" rel="noopener noreferrer" class="btn btn-glass" style="padding: 0.55rem 0.9rem;" title="View Source on GitHub">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Book Shop Website -->
+        <div class="project-card glass-card" data-tilt>
+          <div class="glare-effect"></div>
+          
+          <div class="project-thumbnail">
+            <img src="assets/images/book_shop.jpg" alt="Book Shop Website - Online Bookstore Project Preview">
+            <div class="project-thumbnail-overlay">
+              <span class="project-category-badge">Web Development • E-Commerce</span>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3 class="project-title">Book Shop Website</h3>
+            <p class="project-desc">
+              Designed and developed a comprehensive website for an online book shop using HTML and CSS. Features an engaging catalog showcase, structured book categories, price displays, and an intuitive shopping experience.
+            </p>
+
+            <ul class="project-features">
+              <li class="project-feature-item">
+                <i class="fas fa-check"></i>
+                <span>Responsive online book catalog with genre browsing</span>
+              </li>
+              <li class="project-feature-item">
+                <i class="fas fa-check"></i>
+                <span>Clean semantic HTML structure and modern CSS styling</span>
+              </li>
+              <li class="project-feature-item">
+                <i class="fas fa-check"></i>
+                <span>Shopping cart interface and detailed book overview</span>
+              </li>
+            </ul>
+
+            <div class="tech-pill-list" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">Responsive Layout</span>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn btn-primary btn-demo-trigger" id="open-bookshop-demo">
+                <i class="fas fa-play"></i>
+                <span>Interactive Live Demo</span>
+              </button>
+              <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-cyan);">
+                <i class="fas fa-code"></i> Academic Project
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: UI/UX Design Project -->
+        <div class="project-card glass-card" data-tilt>
+          <div class="glare-effect"></div>
+          
+          <div class="project-thumbnail">
+            <img src="assets/images/uiux_project.jpg" alt="UI/UX Design Project Preview - Modern Glassmorphism Dashboard">
+            <div class="project-thumbnail-overlay">
+              <span class="project-category-badge">UI/UX Design • Prototyping</span>
+            </div>
+          </div>
+
+          <div class="project-content">
+            <h3 class="project-title">UI/UX Design Project</h3>
+            <p class="project-desc">
+              An interactive web and mobile user interface design project focused on user psychology, glassmorphism aesthetics, accessible color contrast, wireframing, and streamlined navigation architecture.
+            </p>
+
+            <ul class="project-features">
+              <li class="project-feature-item">
+                <i class="fas fa-check"></i>
+                <span>User journey mapping and low-to-high fidelity wireframing</span>
+              </li>
+              <li class="project-feature-item">
+                <i class="fas fa-check"></i>
+                <span>Dark mode glassmorphism interface with glowing visual feedback</span>
+              </li>
+              <li class="project-feature-item">
+                <i class="fas fa-check"></i>
+                <span>Design system with typography, color tokens, and modular components</span>
+              </li>
+            </ul>
+
+            <div class="tech-pill-list" style="margin-top: 0.5rem; margin-bottom: 1.5rem;">
+              <span class="tech-pill">UI/UX Design</span>
+              <span class="tech-pill">Wireframing</span>
+              <span class="tech-pill">Design Systems</span>
+              <span class="tech-pill">Glassmorphism</span>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="btn btn-glass btn-demo-trigger" id="open-uiux-demo">
+                <i class="fas fa-palette"></i>
+                <span>Explore Design System</span>
+              </button>
+              <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-violet);">
+                <i class="fas fa-bezier-curve"></i> Academic Project
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Technical Skills Matrix & Strengths Section
+       ======================================================================== -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-microchip"></i>
+          <span>Competencies</span>
+        </div>
+        <h2 class="section-title">Technical Skills & Strengths</h2>
+        <p class="section-subtitle">
+          Core technical competencies, programming proficiencies, and interpersonal strengths as documented in resume.
+        </p>
+      </div>
+
+      <div class="skills-container">
+        <!-- Programming Languages -->
+        <div class="glass-card skill-category-card" data-tilt>
+          <div class="glare-effect"></div>
+          <div class="skill-category-header">
+            <div class="skill-category-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div>
+              <h3 class="skill-category-title">Programming Languages</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">Core Logic & Algorithms</p>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="fab fa-java" style="color: #f89820; margin-right: 0.5rem;"></i>Java</span>
+              <span class="skill-level">Proficient</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="85"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="fab fa-python" style="color: #3776ab; margin-right: 0.5rem;"></i>Python</span>
+              <span class="skill-level">Proficient</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="82"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Technologies -->
+        <div class="glass-card skill-category-card" data-tilt>
+          <div class="glare-effect"></div>
+          <div class="skill-category-header">
+            <div class="skill-category-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div>
+              <h3 class="skill-category-title">Web Technologies</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">Modern Front-End</p>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="fab fa-html5" style="color: #e34f26; margin-right: 0.5rem;"></i>HTML5</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="92"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="fab fa-css3-alt" style="color: #1572b6; margin-right: 0.5rem;"></i>CSS3 & Glassmorphism</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="90"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="fab fa-js" style="color: #f7df1e; margin-right: 0.5rem;"></i>JavaScript</span>
+              <span class="skill-level">Interactive DOM</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="80"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databases & Tools -->
+        <div class="glass-card skill-category-card" data-tilt>
+          <div class="glare-effect"></div>
+          <div class="skill-category-header">
+            <div class="skill-category-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <div>
+              <h3 class="skill-category-title">Database & Tools</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">Data & Workflow</p>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="fas fa-server" style="color: var(--accent-cyan); margin-right: 0.5rem;"></i>SQL Database</span>
+              <span class="skill-level">Relational Data</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="85"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="fab fa-git-alt" style="color: #f05032; margin-right: 0.5rem;"></i>Git & GitHub</span>
+              <span class="skill-level">Version Control</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="80"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="fas fa-terminal" style="color: #007acc; margin-right: 0.5rem;"></i>VS Code & Dev Tools</span>
+              <span class="skill-level">Environment</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="88"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Machine Learning & Data Science -->
+        <div class="glass-card skill-category-card" data-tilt>
+          <div class="glare-effect"></div>
+          <div class="skill-category-header">
+            <div class="skill-category-icon" style="background: rgba(0, 245, 212, 0.1); border-color: rgba(0, 245, 212, 0.3); color: var(--accent-cyan);">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div>
+              <h3 class="skill-category-title">Machine Learning & AI</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">Models & Pipelines</p>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="fas fa-cogs" style="color: #00f5d4; margin-right: 0.5rem;"></i>Scikit-Learn & Random Forest</span>
+              <span class="skill-level">95.4% Accuracy</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="90"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="fas fa-chart-line" style="color: #ff4b4b; margin-right: 0.5rem;"></i>Streamlit Web Apps</span>
+              <span class="skill-level">Interactive UI</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="88"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name"><i class="fas fa-table" style="color: #3b82f6; margin-right: 0.5rem;"></i>Pandas & NumPy</span>
+              <span class="skill-level">Data Preprocessing</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-level="85"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Strengths Section Directly From Resume -->
+      <div class="strengths-grid">
+        <div class="strength-card glass-card" data-tilt>
+          <div class="glare-effect"></div>
+          <div class="strength-icon text-gradient"><i class="fas fa-lightbulb"></i></div>
+          <h4 class="strength-title">Quick Learner</h4>
+          <p class="strength-desc">Strong problem-solving ability with a passion to quickly master and implement novel engineering concepts.</p>
+        </div>
+
+        <div class="strength-card glass-card" data-tilt>
+          <div class="glare-effect"></div>
+          <div class="strength-icon text-gradient-purple"><i class="fas fa-users-gear"></i></div>
+          <h4 class="strength-title">Teamwork & Communication</h4>
+          <p class="strength-desc">Excellent communication skills, effective in collaborative cross-functional settings and project delivery.</p>
+        </div>
+
+        <div class="strength-card glass-card" data-tilt>
+          <div class="glare-effect"></div>
+          <div class="strength-icon" style="color: var(--accent-cyan);"><i class="fas fa-rocket"></i></div>
+          <h4 class="strength-title">Adaptable & Tech-Eager</h4>
+          <p class="strength-desc">Highly adaptable mindset, enthusiastic about learning new programming stacks and digital technologies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Education Section
+       ======================================================================== -->
+  <section class="section" id="education">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Academic Milestones</span>
+        </div>
+        <h2 class="section-title">Education Journey</h2>
+        <p class="section-subtitle">
+          Academic foundation in Computer Science, mathematics, and software development methodologies.
+        </p>
+      </div>
+
+      <div class="education-tree">
+        <!-- Degree: Muthayammal College of Arts and Science -->
+        <div class="edu-item">
+          <div class="edu-node"></div>
+          <div class="glass-card edu-card" data-tilt>
+            <div class="glare-effect"></div>
+            <div class="edu-timeframe">3rd Year • Expected 2027</div>
+            <h3 class="edu-degree">B.Sc. Computer Science</h3>
+            <div class="edu-institution">Muthayammal College of Arts and Science, Rasipuram</div>
+            <p class="edu-details">
+              Focusing on core computer science fundamentals including Data Structures, Object-Oriented Programming (Java & Python), Web Technologies (HTML, CSS), Relational Database Management Systems (SQL), and software development projects.
+            </p>
+          </div>
+        </div>
+
+        <!-- School: Government Higher Secondary School, Keeripatty -->
+        <div class="edu-item">
+          <div class="edu-node completed"></div>
+          <div class="glass-card edu-card" data-tilt>
+            <div class="glare-effect"></div>
+            <div class="edu-timeframe" style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.3); color: #c4b5fd;">
+              Higher Secondary Education • 71%
+            </div>
+            <h3 class="edu-degree">Higher Secondary Certificate (HSC)</h3>
+            <div class="edu-institution">Government Higher Secondary School, Keeripatty</div>
+            <p class="edu-details">
+              Completed Higher Secondary Education with a commendable score of <strong>71%</strong>, building strong foundations in mathematics and science.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Contact Section
+       ======================================================================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">
+          <i class="fas fa-envelope-open-text"></i>
+          <span>Get in Touch</span>
+        </div>
+        <h2 class="section-title">Let's Connect & Collaborate</h2>
+        <p class="section-subtitle">
+          Interested in hiring an enthusiastic B.Sc. Computer Science student for internships or placement roles? Reach out directly!
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Direct Contact Details -->
+        <div>
+          <div class="contact-info-list">
+            <a href="mailto:suganyatrip1@gmail.com" class="contact-card-item" title="Send Email">
+              <div class="contact-icon-box">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <div class="contact-meta-label">EMAIL ADDRESS</div>
+                <div class="contact-meta-val">suganyatrip1@gmail.com</div>
+              </div>
+            </a>
+
+            <a href="tel:8072653361" class="contact-card-item" title="Call Direct">
+              <div class="contact-icon-box">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div>
+                <div class="contact-meta-label">PHONE NUMBER</div>
+                <div class="contact-meta-val">+91 8072653361</div>
+              </div>
+            </a>
+
+            <div class="contact-card-item">
+              <div class="contact-icon-box">
+                <i class="fas fa-location-dot"></i>
+              </div>
+              <div>
+                <div class="contact-meta-label">LOCATION</div>
+                <div class="contact-meta-val">Rasipuram, Tamil Nadu, India</div>
+              </div>
+            </div>
+
+            <div class="contact-card-item">
+              <div class="contact-icon-box">
+                <i class="fas fa-comments"></i>
+              </div>
+              <div>
+                <div class="contact-meta-label">LANGUAGES KNOWN</div>
+                <div class="contact-meta-val">Tamil, English</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card" style="padding: 1.8rem;" data-tilt>
+            <div class="glare-effect"></div>
+            <div style="font-size: 1.1rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+              <i class="fas fa-file-invoice text-gradient" style="margin-right: 0.5rem;"></i>
+              Looking for a formal resume?
+            </div>
+            <p style="font-size: 0.95rem; margin-bottom: 1.2rem;">
+              View and download Suganya S's verified resume complete with academic background and technical internship record.
+            </p>
+            <button class="btn btn-primary open-resume-btn" style="width: 100%;">
+              <i class="fas fa-download"></i>
+              <span>Open & Download Resume</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Contact Form -->
+        <div class="glass-card" data-tilt>
+          <div class="glare-effect"></div>
+          <h3 style="font-size: 1.5rem; color: #ffffff; margin-bottom: 1.2rem;">Send a Message</h3>
+          
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="contact-name" class="form-label">YOUR FULL NAME *</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="e.g. John Doe / Recruiter" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email" class="form-label">YOUR EMAIL ADDRESS *</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="name@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject" class="form-label">SUBJECT</label>
+              <input type="text" id="contact-subject" class="form-input" placeholder="Internship Opportunity / Project Inquiry">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message" class="form-label">MESSAGE *</label>
+              <textarea id="contact-message" class="form-textarea" placeholder="Write your message or inquiry here..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="contact-submit-btn">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane btn-icon"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="nav-logo" style="margin-bottom: 0.5rem;">
+            <span class="logo-badge">S</span>
+            <span>SUGANYA<span class="text-gradient">.S</span></span>
+          </div>
+          <p class="footer-text">
+            B.Sc. Computer Science (Expected 2027) • Muthayammal College of Arts and Science
+          </p>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-muted);">
+          Crafted with HTML, CSS, JavaScript & Three.js 3D Visuals
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       Floating Quick Utilities: Back to Top
+       ======================================================================== -->
+  <button class="back-to-top" id="back-to-top" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toast-notice">
+    <i class="fas fa-sparkles text-gradient"></i>
+    <span class="toast-message">Notification message</span>
+  </div>
+
+  <!-- ========================================================================
+       Modal 0: Airline Customer Satisfaction ML Platform Live Simulation
+       ======================================================================== -->
+  <div class="modal-overlay" id="ml-demo-modal" role="dialog" aria-modal="true">
+    <div class="modal-window" style="max-width: 980px;">
+      <div class="modal-header">
+        <div class="modal-title-box">
+          <i class="fas fa-plane-departure text-gradient" style="font-size: 1.4rem;"></i>
+          <div>
+            <div class="modal-title">Airline Customer Satisfaction ML Platform</div>
+            <div style="font-size: 0.78rem; color: var(--accent-cyan); font-family: var(--font-mono);">
+              Scikit-Learn RandomForestClassifier (100 Trees) • Streamlit Web UI • 95.4% Accuracy
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <a href="https://github.com/24ucs152-alt/AIRLINE-ML-PROJECT.git" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;" title="View on GitHub">
+            <i class="fab fa-github"></i>
+            <span>GitHub Repo</span>
+            <i class="fas fa-arrow-up-right-from-square" style="font-size: 0.72rem; margin-left: 0.2rem;"></i>
+          </a>
+          <button class="modal-close-btn" aria-label="Close modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-body" style="padding: 1.5rem;">
+        <!-- ML Platform Tab Navigation -->
+        <div class="ml-tabs-bar">
+          <button class="ml-tab-btn active" data-tab="tab-predict">
+            <i class="fas fa-robot"></i>
+            <span>Live Prediction Engine</span>
+          </button>
+          <button class="ml-tab-btn" data-tab="tab-metrics">
+            <i class="fas fa-chart-pie"></i>
+            <span>Model Performance & Confusion Matrix</span>
+          </button>
+          <button class="ml-tab-btn" data-tab="tab-architecture">
+            <i class="fas fa-layer-group"></i>
+            <span>Pipeline & Quickstart</span>
+          </button>
+        </div>
+
+        <!-- Tab 1: Live Prediction Engine -->
+        <div class="ml-tab-pane active" id="tab-predict">
+          <!-- Streamlit simulated header banner -->
+          <div class="streamlit-banner">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem;">
+              <div>
+                <h4 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.3rem;">
+                  ✈️ Interactive Passenger Satisfaction Predictor
+                </h4>
+                <p style="font-size: 0.85rem; color: #94a3b8;">
+                  Test the trained Random Forest model with custom flight profiles and service touchpoints to evaluate passenger satisfaction in real time.
+                </p>
+              </div>
+              <div class="streamlit-badge">
+                <span class="pulse-dot"></span>
+                <span>Streamlit Active Inference</span>
+              </div>
+            </div>
+
+            <!-- Quick Presets -->
+            <div class="preset-buttons-row">
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">PRESET SCENARIOS:</span>
+              <button class="preset-btn" id="preset-business-happy">
+                <i class="fas fa-suitcase"></i> Delighted Business Traveler
+              </button>
+              <button class="preset-btn" id="preset-eco-delayed">
+                <i class="fas fa-clock"></i> Delayed Economy Passenger
+              </button>
+              <button class="preset-btn" id="preset-neutral">
+                <i class="fas fa-user"></i> Average Commuter
+              </button>
+            </div>
+          </div>
+
+          <div class="ml-predict-layout">
+            <!-- Form Parameters Left -->
+            <div class="ml-form-card">
+              <h5 class="ml-card-title"><i class="fas fa-sliders text-gradient"></i> Passenger Profile & Flight Info</h5>
+
+              <div class="ml-form-grid">
+                <div class="ml-field">
+                  <label class="ml-label">Customer Type</label>
+                  <select class="ml-input" id="ml-customer-type">
+                    <option value="loyal" selected>Loyal Customer</option>
+                    <option value="disloyal">Disloyal Customer</option>
+                  </select>
+                </div>
+
+                <div class="ml-field">
+                  <label class="ml-label">Type of Travel</label>
+                  <select class="ml-input" id="ml-travel-type">
+                    <option value="business" selected>Business Travel</option>
+                    <option value="personal">Personal Travel</option>
+                  </select>
+                </div>
+
+                <div class="ml-field">
+                  <label class="ml-label">Travel Class</label>
+                  <select class="ml-input" id="ml-class">
+                    <option value="business" selected>Business Class</option>
+                    <option value="eco">Economy (Eco)</option>
+                    <option value="eco-plus">Eco Plus</option>
+                  </select>
+                </div>
+
+                <div class="ml-field">
+                  <div style="display: flex; justify-content: space-between;">
+                    <label class="ml-label">Flight Distance</label>
+                    <span class="slider-val-badge" id="val-distance">1,450 km</span>
+                  </div>
+                  <input type="range" class="ml-slider" id="ml-distance" min="100" max="4500" step="50" value="1450">
+                </div>
+
+                <div class="ml-field">
+                  <div style="display: flex; justify-content: space-between;">
+                    <label class="ml-label">Arrival Delay</label>
+                    <span class="slider-val-badge" id="val-delay">0 min</span>
+                  </div>
+                  <input type="range" class="ml-slider" id="ml-delay" min="0" max="180" step="5" value="0">
+                </div>
+              </div>
+
+              <h5 class="ml-card-title" style="margin-top: 1.2rem;">
+                <i class="fas fa-star text-gradient-purple"></i> Service Touchpoints (1–5 Scale)
+              </h5>
+
+              <div class="ml-ratings-grid">
+                <div class="rating-item">
+                  <span class="rating-label">Inflight Entertainment</span>
+                  <div class="star-rating">
+                    <input type="range" class="ml-slider" id="ml-entertainment" min="1" max="5" value="5">
+                    <span class="star-number" id="num-entertainment">5 ★</span>
+                  </div>
+                </div>
+
+                <div class="rating-item">
+                  <span class="rating-label">Seat Comfort</span>
+                  <div class="star-rating">
+                    <input type="range" class="ml-slider" id="ml-seat" min="1" max="5" value="4">
+                    <span class="star-number" id="num-seat">4 ★</span>
+                  </div>
+                </div>
+
+                <div class="rating-item">
+                  <span class="rating-label">Ease of Online Booking</span>
+                  <div class="star-rating">
+                    <input type="range" class="ml-slider" id="ml-booking" min="1" max="5" value="4">
+                    <span class="star-number" id="num-booking">4 ★</span>
+                  </div>
+                </div>
+
+                <div class="rating-item">
+                  <span class="rating-label">On-board Service & Cleanliness</span>
+                  <div class="star-rating">
+                    <input type="range" class="ml-slider" id="ml-service" min="1" max="5" value="5">
+                    <span class="star-number" id="num-service">5 ★</span>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn btn-primary" id="btn-predict" style="width: 100%; margin-top: 1.2rem;">
+                <i class="fas fa-brain"></i>
+                <span>Compute Satisfaction Prediction</span>
+              </button>
+            </div>
+
+            <!-- Prediction Results Right -->
+            <div class="ml-result-card">
+              <div class="result-header">
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;">
+                  Model Output (Random Forest)
+                </span>
+                <span class="result-chip" id="result-chip">High Confidence</span>
+              </div>
+
+              <!-- Main Result Outcome -->
+              <div class="outcome-box satisfied" id="outcome-box">
+                <div class="outcome-icon" id="outcome-icon">
+                  <i class="fas fa-smile-beam"></i>
+                </div>
+                <div>
+                  <div class="outcome-title" id="outcome-title">Satisfied Passenger</div>
+                  <div class="outcome-subtitle" id="outcome-subtitle">High likelihood of repeat booking & positive review</div>
+                </div>
+              </div>
+
+              <!-- Confidence Progress -->
+              <div class="confidence-container">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.4rem;">
+                  <span style="color: var(--text-secondary);">Model Prediction Probability:</span>
+                  <strong style="font-family: var(--font-mono); color: var(--accent-cyan);" id="confidence-percentage">96.8%</strong>
+                </div>
+                <div class="confidence-bar-track">
+                  <div class="confidence-bar-fill" id="confidence-bar-fill" style="width: 96.8%;"></div>
+                </div>
+              </div>
+
+              <!-- Influencing Factors -->
+              <div class="factors-box">
+                <div style="font-size: 0.82rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.6rem;">
+                  <i class="fas fa-diagram-project text-gradient"></i> TOP INFLUENCING FACTORS:
+                </div>
+                <ul class="factor-list" id="factor-list">
+                  <li class="factor-item positive"><i class="fas fa-plus-circle"></i> Superior Inflight Entertainment (5/5)</li>
+                  <li class="factor-item positive"><i class="fas fa-plus-circle"></i> Spacious Business Class seating & priority</li>
+                  <li class="factor-item positive"><i class="fas fa-plus-circle"></i> Flawless on-time arrival (0 min delay)</li>
+                  <li class="factor-item positive"><i class="fas fa-plus-circle"></i> Recognized Airline Loyalty Member status</li>
+                </ul>
+              </div>
+
+              <div class="model-meta-strip">
+                <div><i class="fas fa-database"></i> Train/Test: <strong>80 / 20</strong></div>
+                <div><i class="fas fa-tree"></i> Trees: <strong>100</strong></div>
+                <div><i class="fas fa-bolt"></i> Latency: <strong>~2.4 ms</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Model Performance & Confusion Matrix -->
+        <div class="ml-tab-pane" id="tab-metrics">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-val text-gradient">95.4%</div>
+              <div class="metric-lbl">Test Accuracy</div>
+              <div class="metric-sub">Overall correct classification on holdout test set</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val" style="color: #00f5d4;">96.2%</div>
+              <div class="metric-lbl">Precision</div>
+              <div class="metric-sub">Low false positive rate for satisfied travelers</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val text-gradient-purple">94.8%</div>
+              <div class="metric-lbl">Recall</div>
+              <div class="metric-sub">High sensitivity identifying true satisfied passengers</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-val" style="color: #ec4899;">95.5%</div>
+              <div class="metric-lbl">F1-Score</div>
+              <div class="metric-sub">Harmonic mean of precision and recall</div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+            <!-- Confusion Matrix Display -->
+            <div class="glass-card" style="padding: 1.4rem;">
+              <h5 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 0.8rem;">
+                <i class="fas fa-table-cells text-gradient"></i> Evaluated Confusion Matrix
+              </h5>
+              <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                Comparison between ground truth labels and Random Forest predictions on 20% test split.
+              </p>
+
+              <div class="cm-table">
+                <div class="cm-header-cell"></div>
+                <div class="cm-header-cell">Pred: Dissatisfied</div>
+                <div class="cm-header-cell">Pred: Satisfied</div>
+
+                <div class="cm-row-label">Actual: Dissatisfied</div>
+                <div class="cm-cell cm-true">
+                  <span class="cm-val">94.8%</span>
+                  <span class="cm-type">True Negative (TN)</span>
+                </div>
+                <div class="cm-cell cm-false">
+                  <span class="cm-val">5.2%</span>
+                  <span class="cm-type">False Positive (FP)</span>
+                </div>
+
+                <div class="cm-row-label">Actual: Satisfied</div>
+                <div class="cm-cell cm-false">
+                  <span class="cm-val">3.8%</span>
+                  <span class="cm-type">False Negative (FN)</span>
+                </div>
+                <div class="cm-cell cm-true">
+                  <span class="cm-val">96.2%</span>
+                  <span class="cm-type">True Positive (TP)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature Importance -->
+            <div class="glass-card" style="padding: 1.4rem;">
+              <h5 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 0.8rem;">
+                <i class="fas fa-ranking-star text-gradient-purple"></i> Key Satisfaction Drivers
+              </h5>
+              <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                Feature importances extracted directly from the 100 decision tree ensemble.
+              </p>
+
+              <div class="feature-importance-list">
+                <div class="feature-bar-item">
+                  <div class="feature-bar-header">
+                    <span>In-flight Service & Entertainment</span>
+                    <strong style="color: var(--accent-cyan);">34%</strong>
+                  </div>
+                  <div class="feature-bar-track">
+                    <div class="feature-bar-fill" style="width: 85%;"></div>
+                  </div>
+                </div>
+
+                <div class="feature-bar-item">
+                  <div class="feature-bar-header">
+                    <span>Cabin Cleanliness & Comfort</span>
+                    <strong style="color: var(--accent-cyan);">28%</strong>
+                  </div>
+                  <div class="feature-bar-track">
+                    <div class="feature-bar-fill" style="width: 70%;"></div>
+                  </div>
+                </div>
+
+                <div class="feature-bar-item">
+                  <div class="feature-bar-header">
+                    <span>Seat Comfort & Legroom</span>
+                    <strong style="color: var(--accent-cyan);">21%</strong>
+                  </div>
+                  <div class="feature-bar-track">
+                    <div class="feature-bar-fill" style="width: 55%;"></div>
+                  </div>
+                </div>
+
+                <div class="feature-bar-item">
+                  <div class="feature-bar-header">
+                    <span>Ease of Online Booking & Check-in</span>
+                    <strong style="color: var(--accent-cyan);">17%</strong>
+                  </div>
+                  <div class="feature-bar-track">
+                    <div class="feature-bar-fill" style="width: 42%;"></div>
+                  </div>
+                </div>
+
+                <div class="feature-bar-item">
+                  <div class="feature-bar-header">
+                    <span>Flight Delay (Departure / Arrival)</span>
+                    <strong style="color: var(--accent-cyan);">12%</strong>
+                  </div>
+                  <div class="feature-bar-track">
+                    <div class="feature-bar-fill" style="width: 30%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Architecture & Quickstart -->
+        <div class="ml-tab-pane" id="tab-architecture">
+          <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.5rem;">
+            <div>
+              <div class="glass-card" style="padding: 1.4rem; margin-bottom: 1.2rem;">
+                <h5 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 0.6rem;">
+                  <i class="fas fa-terminal text-gradient"></i> Quickstart & Execution Guide
+                </h5>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                  Run this project locally on your machine in three simple steps.
+                </p>
+
+                <!-- Command 1 -->
+                <div class="code-box">
+                  <div class="code-box-header">
+                    <span>1. Install Project Dependencies</span>
+                    <button class="copy-cmd-btn" data-copy="pip install -r requirements.txt"><i class="far fa-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content"><code>pip install -r requirements.txt</code></pre>
+                </div>
+
+                <!-- Command 2 -->
+                <div class="code-box">
+                  <div class="code-box-header">
+                    <span>2. Train Random Forest Model & Save Artifact</span>
+                    <button class="copy-cmd-btn" data-copy="python train_model.py"><i class="far fa-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content"><code>python train_model.py</code></pre>
+                </div>
+
+                <!-- Command 3 -->
+                <div class="code-box">
+                  <div class="code-box-header">
+                    <span>3. Launch Streamlit Web Application</span>
+                    <button class="copy-cmd-btn" data-copy="streamlit run app.py"><i class="far fa-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content"><code>streamlit run app.py</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <!-- Project Directory Structure -->
+              <div class="glass-card" style="padding: 1.4rem; margin-bottom: 1.2rem;">
+                <h5 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 0.6rem;">
+                  <i class="fas fa-folder-tree text-gradient-purple"></i> Project Repository Structure
+                </h5>
+                <pre class="tree-display"><code>suganya/
+├── Airline_customer_satisfaction.csv  # Raw dataset
+├── app.py                             # Streamlit web UI
+├── train_model.py                     # ML pipeline training
+├── model.pkl                          # Serialized pipeline
+├── requirements.txt                   # Dependencies
+├── README.md                          # Quickstart guide
+└── utils/
+    ├── __init__.py
+    └── preprocessing.py               # Data pipelines</code></pre>
+              </div>
+
+              <!-- GitHub Repo CTA -->
+              <div class="glass-card" style="padding: 1.4rem; text-align: center;">
+                <i class="fab fa-github text-gradient" style="font-size: 2.2rem; margin-bottom: 0.6rem; display: inline-block;"></i>
+                <h5 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 0.3rem;">Explore Full Source Code</h5>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                  Check out the repository on GitHub with scripts, notebooks, and dataset configurations.
+                </p>
+                <a href="https://github.com/24ucs152-alt/AIRLINE-ML-PROJECT.git" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
+                  <i class="fab fa-github"></i>
+                  <span>24ucs152-alt / AIRLINE-ML-PROJECT</span>
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Modal 1: Book Shop Website Live Interactive Simulation
+       ======================================================================== -->
+  <div class="modal-overlay" id="demo-modal" role="dialog" aria-modal="true">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-title-box">
+          <i class="fas fa-book-open text-gradient" style="font-size: 1.4rem;"></i>
+          <div>
+            <div class="modal-title">Book Shop Website • Live Interactive Demo</div>
+            <div style="font-size: 0.78rem; color: var(--accent-cyan); font-family: var(--font-mono);">Designed & Developed with HTML, CSS & JavaScript</div>
+          </div>
+        </div>
+        <button class="modal-close-btn" aria-label="Close modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="demo-browser-frame">
+          <div class="browser-bar">
+            <div class="browser-dots">
+              <span class="b-dot b-dot-red"></span>
+              <span class="b-dot b-dot-yellow"></span>
+              <span class="b-dot b-dot-green"></span>
+            </div>
+            <div class="browser-address">
+              <i class="fas fa-lock" style="color: var(--accent-emerald);"></i>
+              <span>https://suganya-bookshop.local/store</span>
+            </div>
+            <div class="browser-cart-badge">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="sim-cart-count">0</span> Items
+            </div>
+          </div>
+
+          <div class="sim-store-body">
+            <div class="sim-hero-banner">
+              <h4 style="font-size: 1.3rem; color: #ffffff; margin-bottom: 0.4rem;">
+                📚 Welcome to Suganya's Book Shop
+              </h4>
+              <p style="font-size: 0.88rem; color: #cbd5e1;">
+                Browse curated technology, computer science, and fiction titles. Click "Add to Cart" to test interactive cart functionality!
+              </p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div style="display: flex; gap: 0.6rem; margin-bottom: 1.2rem; flex-wrap: wrap;">
+              <button class="btn sim-tab-btn" data-category="all" style="padding: 0.35rem 0.9rem; font-size: 0.82rem; border-radius: 6px; background: rgba(0, 245, 212, 0.15); border: 1px solid var(--accent-cyan); color: #ffffff;">All Books</button>
+              <button class="btn sim-tab-btn" data-category="tech" style="padding: 0.35rem 0.9rem; font-size: 0.82rem; border-radius: 6px; border: 1px solid var(--border-glass); color: var(--text-secondary);">Computer Science</button>
+              <button class="btn sim-tab-btn" data-category="selfhelp" style="padding: 0.35rem 0.9rem; font-size: 0.82rem; border-radius: 6px; border: 1px solid var(--border-glass); color: var(--text-secondary);">Self Development</button>
+            </div>
+
+            <!-- Simulated Books Catalog -->
+            <div class="sim-catalog-grid">
+              <div class="sim-book-card" data-genre="tech">
+                <div class="sim-book-cover"><i class="fab fa-java"></i></div>
+                <div class="sim-book-title">Effective Java</div>
+                <div class="sim-book-author">Joshua Bloch</div>
+                <div class="sim-book-price">₹ 650.00</div>
+                <button class="btn-add-cart" data-title="Effective Java">+ Add to Cart</button>
+              </div>
+
+              <div class="sim-book-card" data-genre="tech">
+                <div class="sim-book-cover"><i class="fab fa-python"></i></div>
+                <div class="sim-book-title">Python Crash Course</div>
+                <div class="sim-book-author">Eric Matthes</div>
+                <div class="sim-book-price">₹ 580.00</div>
+                <button class="btn-add-cart" data-title="Python Crash Course">+ Add to Cart</button>
+              </div>
+
+              <div class="sim-book-card" data-genre="tech">
+                <div class="sim-book-cover"><i class="fab fa-html5"></i></div>
+                <div class="sim-book-title">HTML & CSS Mastery</div>
+                <div class="sim-book-author">Jon Duckett</div>
+                <div class="sim-book-price">₹ 720.00</div>
+                <button class="btn-add-cart" data-title="HTML & CSS Mastery">+ Add to Cart</button>
+              </div>
+
+              <div class="sim-book-card" data-genre="selfhelp">
+                <div class="sim-book-cover"><i class="fas fa-brain"></i></div>
+                <div class="sim-book-title">Atomic Habits</div>
+                <div class="sim-book-author">James Clear</div>
+                <div class="sim-book-price">₹ 490.00</div>
+                <button class="btn-add-cart" data-title="Atomic Habits">+ Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Modal 2: UI/UX Design System Showcase
+       ======================================================================== -->
+  <div class="modal-overlay" id="uiux-modal" role="dialog" aria-modal="true">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-title-box">
+          <i class="fas fa-layer-group text-gradient-purple" style="font-size: 1.4rem;"></i>
+          <div>
+            <div class="modal-title">UI/UX Design Project • Architecture & Tokens</div>
+            <div style="font-size: 0.78rem; color: var(--accent-violet); font-family: var(--font-mono);">Modern Glassmorphic Interface Design System</div>
+          </div>
+        </div>
+        <button class="modal-close-btn" aria-label="Close modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+          <div class="glass-card" style="padding: 1.2rem;">
+            <h4 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.6rem;">
+              <i class="fas fa-swatchbook text-gradient" style="margin-right: 0.5rem;"></i>Design Tokens
+            </h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">
+              Built with harmonious HSL tones, dark obsidian depth, and luminous cyan/violet contrast ratios compliant with WCAG AA guidelines.
+            </p>
+            <div style="display: flex; gap: 0.5rem;">
+              <div style="flex: 1; height: 35px; border-radius: 6px; background: #00f5d4; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #000; font-weight: 700;">Cyan</div>
+              <div style="flex: 1; height: 35px; border-radius: 6px; background: #8b5cf6; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #fff; font-weight: 700;">Violet</div>
+              <div style="flex: 1; height: 35px; border-radius: 6px; background: #0a0e1c; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #fff;">Dark BG</div>
+            </div>
+          </div>
+
+          <div class="glass-card" style="padding: 1.2rem;">
+            <h4 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.6rem;">
+              <i class="fas fa-mobile-screen text-gradient-purple" style="margin-right: 0.5rem;"></i>Responsive Layout
+            </h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+              Mobile-first responsive fluid grid accommodating phones, tablets, and large 4K displays with seamless CSS grid & flexbox structures.
+            </p>
+          </div>
+        </div>
+
+        <div style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+          <img src="assets/images/uiux_project.jpg" alt="UI/UX Full System View" style="width: 100%;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Modal 3: Resume Sheet Viewer (Direct from user's attached resume)
+       ======================================================================== -->
+  <div class="modal-overlay" id="resume-modal" role="dialog" aria-modal="true">
+    <div class="modal-window" style="max-width: 820px;">
+      <div class="modal-header">
+        <div class="modal-title-box">
+          <i class="fas fa-file-lines text-gradient" style="font-size: 1.4rem;"></i>
+          <div>
+            <div class="modal-title">Suganya S — Official Resume</div>
+            <div style="font-size: 0.78rem; color: var(--accent-cyan); font-family: var(--font-mono);">B.Sc. Computer Science • 3rd Year Student</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 0.6rem;">
+          <button class="btn btn-primary" id="print-resume-btn" style="padding: 0.4rem 1rem; font-size: 0.85rem;">
+            <i class="fas fa-print"></i>
+            <span>Print / Save PDF</span>
+          </button>
+          <button class="modal-close-btn" aria-label="Close modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-body" style="background: #ffffff; color: #1e293b; padding: 2.5rem; font-family: 'Plus Jakarta Sans', sans-serif;">
+        <!-- Resume Paper Header -->
+        <div style="text-align: center; border-bottom: 2px solid #0f172a; padding-bottom: 1.2rem; margin-bottom: 1.5rem;">
+          <h1 style="font-size: 2rem; color: #0f172a; letter-spacing: 0.05em; margin-bottom: 0.2rem; font-family: 'Outfit', sans-serif;">SUGANYA S</h1>
+          <p style="font-size: 1.05rem; color: #334155; font-weight: 600; margin-bottom: 0.4rem;">B.Sc. Computer Science | 3rd Year Student</p>
+          <p style="font-size: 0.9rem; color: #64748b;">
+            Email: suganyatrip1@gmail.com &nbsp;|&nbsp; Phone: 8072653361 &nbsp;|&nbsp; Rasipuram, Tamil Nadu
+          </p>
+        </div>
+
+        <!-- Career Objective -->
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.05rem; color: #0f172a; border-bottom: 1px solid #cbd5e1; padding-bottom: 0.3rem; margin-bottom: 0.6rem; letter-spacing: 0.05em;">CAREER OBJECTIVE</h2>
+          <p style="font-size: 0.92rem; color: #334155; line-height: 1.6;">
+            A motivated and detail-oriented B.Sc. Computer Science student with hands-on internship experience and academic project work in web development. Seeking an entry-level internship/placement opportunity to apply technical skills, contribute effectively to a team, and grow as a software professional.
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.05rem; color: #0f172a; border-bottom: 1px solid #cbd5e1; padding-bottom: 0.3rem; margin-bottom: 0.6rem; letter-spacing: 0.05em;">EDUCATION</h2>
+          
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.2rem;">
+            <strong style="font-size: 0.95rem; color: #0f172a;">B.Sc. Computer Science — Muthayammal College of Arts and Science, Rasipuram</strong>
+            <span style="font-size: 0.88rem; color: #475569; font-weight: 600;">3rd Year (Expected 2027)</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 0.6rem;">
+            <strong style="font-size: 0.95rem; color: #0f172a;">Higher Secondary Education — Government Higher Secondary School, Keeripatty</strong>
+            <span style="font-size: 0.88rem; color: #475569; font-weight: 600;">71%</span>
+          </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.05rem; color: #0f172a; border-bottom: 1px solid #cbd5e1; padding-bottom: 0.3rem; margin-bottom: 0.6rem; letter-spacing: 0.05em;">TECHNICAL SKILLS</h2>
+          <ul style="padding-left: 1.3rem; font-size: 0.92rem; color: #334155; line-height: 1.7;">
+            <li><strong>Machine Learning:</strong> Scikit-Learn (RandomForestClassifier, Pipeline, ColumnTransformer), Streamlit, Pandas, NumPy, Data Preprocessing</li>
+            <li><strong>Programming Languages:</strong> Python, Java</li>
+            <li><strong>Web Technologies:</strong> HTML, CSS, JavaScript</li>
+            <li><strong>Database:</strong> SQL</li>
+            <li><strong>Tools & IDEs:</strong> Git, GitHub, VS Code</li>
+          </ul>
+        </div>
+
+        <!-- Internship -->
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.05rem; color: #0f172a; border-bottom: 1px solid #cbd5e1; padding-bottom: 0.3rem; margin-bottom: 0.6rem; letter-spacing: 0.05em;">INTERNSHIP</h2>
+          <div style="margin-bottom: 0.3rem;">
+            <strong style="font-size: 0.95rem; color: #0f172a;">Intern — Infospark Innovation Pvt Ltd</strong>
+            <div style="font-size: 0.88rem; color: #64748b; font-style: italic;">Web Development Intern</div>
+          </div>
+          <ul style="padding-left: 1.3rem; font-size: 0.92rem; color: #334155; line-height: 1.6;">
+            <li>Contributed to front-end development tasks, building structured and responsive web components using HTML, CSS, and modern web standards.</li>
+            <li>Gained hands-on experience in cross-device compatibility, design alignment, and collaborative team engineering practices.</li>
+          </ul>
+        </div>
+
+        <!-- Academic Projects -->
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.05rem; color: #0f172a; border-bottom: 1px solid #cbd5e1; padding-bottom: 0.3rem; margin-bottom: 0.6rem; letter-spacing: 0.05em;">ACADEMIC & APPLIED PROJECTS</h2>
+          
+          <div style="margin-bottom: 0.8rem;">
+            <strong style="font-size: 0.95rem; color: #0f172a;">Airline Customer Satisfaction ML Platform</strong>
+            <ul style="padding-left: 1.3rem; font-size: 0.92rem; color: #334155; line-height: 1.5;">
+              <li>Engineered an end-to-end Machine Learning web application using Python, Scikit-Learn (Random Forest ensemble of 100 trees), and Streamlit.</li>
+              <li>Built automated data preprocessing pipelines for missing value imputation and categorical encoding, reaching 95.4% accuracy and 95.5% F1-score on test data.</li>
+              <li>Implemented an interactive Streamlit user interface featuring real-time prediction confidence, KPI dashboards, and feature importance rankings.</li>
+              <li>GitHub Repository: github.com/24ucs152-alt/AIRLINE-ML-PROJECT</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 0.8rem;">
+            <strong style="font-size: 0.95rem; color: #0f172a;">Book Shop Website</strong>
+            <ul style="padding-left: 1.3rem; font-size: 0.92rem; color: #334155; line-height: 1.5;">
+              <li>Designed and developed a website for an online book shop using HTML and CSS.</li>
+              <li>Engineered interactive catalog browsing, genre navigation, and cart management layout.</li>
+            </ul>
+          </div>
+
+          <div>
+            <strong style="font-size: 0.95rem; color: #0f172a;">UI/UX Design Project</strong>
+            <ul style="padding-left: 1.3rem; font-size: 0.92rem; color: #334155; line-height: 1.5;">
+              <li>Created an interactive user interface & user experience design prototype with glassmorphism aesthetics, responsive dashboard layouts, and design tokens.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Strengths -->
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.05rem; color: #0f172a; border-bottom: 1px solid #cbd5e1; padding-bottom: 0.3rem; margin-bottom: 0.6rem; letter-spacing: 0.05em;">STRENGTHS</h2>
+          <ul style="padding-left: 1.3rem; font-size: 0.92rem; color: #334155; line-height: 1.6;">
+            <li>Quick learner with strong problem-solving ability</li>
+            <li>Good communication and teamwork skills</li>
+            <li>Adaptable and eager to learn new technologies</li>
+          </ul>
+        </div>
+
+        <!-- Languages Known -->
+        <div>
+          <h2 style="font-size: 1.05rem; color: #0f172a; border-bottom: 1px solid #cbd5e1; padding-bottom: 0.3rem; margin-bottom: 0.6rem; letter-spacing: 0.05em;">LANGUAGES KNOWN</h2>
+          <p style="font-size: 0.92rem; color: #334155;">Tamil, English</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Three.js Library CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Application Logic & 3D Interactive Scripts -->
+  <script src="js/three-scene.js"></script>
+  <script src="js/tilt-cursor.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
